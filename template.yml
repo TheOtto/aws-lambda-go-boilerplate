@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Hello World Go Lambda function 
+
+Resources:
+  helloworld:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: bin/main
+      CodeUri: ./deployment.zip
+      Runtime: go1.x
+      Events:
+        ListCustomers:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: post
